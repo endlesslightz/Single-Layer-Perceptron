@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from utilitas import get_data, akurasi
+from utilitas import get_data, akurasi, cetak_graf
 from model import latih, uji
 from matplotlib import pyplot as plt 
 
@@ -23,18 +23,5 @@ if __name__=='__main__':
     print('Kelas Prediksi:', y_pred)
     print('Kelas Target:', y_uji)
     
-    # cetak chart error
-    x = np.arange(1,11) 
-    plt.plot(x,m_mse)
-    plt.title('Grafik MSE') 
-    plt.ylabel('Error') 
-    plt.xlabel('Epoch ke-')
-    plt.show()
-
-    # cetak chart akurasi
-    x = np.arange(1,11) 
-    plt.plot(x,m_acc)
-    plt.title('Grafik Akurasi') 
-    plt.ylabel('Akurasi (%)') 
-    plt.xlabel('Epoch ke-')
-    plt.show(block=True)
+    # Memanggil fungsi cetak grafik
+    cetak_graf(m_mse, m_acc)

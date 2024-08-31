@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt 
 import os
 import math
 
@@ -25,3 +26,18 @@ def aktivasi(x):
 
 def akurasi(target, prediksi):
     return np.mean(target == prediksi)*100
+
+def cetak_graf(m_mse, m_acc):
+       # cetak chart error di subplot 1
+    x = np.arange(1,11) 
+    fig, axs = plt.subplots(2, 1, constrained_layout=True)
+    axs[0].plot(x,m_mse, marker = 'o')
+    axs[0].set_title('Grafik MSE') 
+    axs[0].set_ylabel('Error') 
+    axs[0].set_xlabel('Epoch ke-')
+    # cetak chart akurasi di subplot 2
+    axs[1].plot(x,m_acc, marker = 'o')
+    axs[1].set_title('Grafik Akurasi') 
+    axs[1].set_ylabel('Akurasi (%)') 
+    axs[1].set_xlabel('Epoch ke-')
+    plt.show(block=True)
