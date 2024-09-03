@@ -9,7 +9,7 @@ if __name__=='__main__':
     x_uji,  y_uji = get_data('DataUji.csv')
     
     # Melatih model Perceptron, dapat bobot matrix MSE per epoch dan akurasi per epoch
-    model, m_mse, m_acc = latih(x_latih, y_latih, 0.1, 10)
+    model, m_err_latih, m_err_uji, m_aku_latih, m_aku_uji = latih(x_latih, y_latih, 0.1, 10)
 
     # Melakukan prediksi pada menggunakan model terakhir
     y_pred = uji(x_uji, model)
@@ -24,4 +24,4 @@ if __name__=='__main__':
     print('Kelas Target:', y_uji)
     
     # Memanggil fungsi cetak grafik
-    cetak_graf(m_mse, m_acc)
+    cetak_graf(m_err_latih, m_err_uji, m_aku_uji, m_aku_uji)
